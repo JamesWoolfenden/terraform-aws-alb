@@ -1,6 +1,6 @@
 resource "aws_lb" "example" {
-    
-  name_prefix =  var.lb_name
+
+  name_prefix        = var.lb_name
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.lb_sg.id]
@@ -13,11 +13,10 @@ resource "aws_lb" "example" {
     prefix  = "test-lb"
     enabled = true
   }
+  drop_invalid_header_fields = true
 }
 
-variable "lb_name" {
-    type=string
-}
+
 
 resource "aws_s3_bucket" "lb_logs" {
 
@@ -25,11 +24,11 @@ resource "aws_s3_bucket" "lb_logs" {
 
 
 resource "aws_security_group" "lb_sg" {
-  
+
 }
 
 variable "subnet_ids" {
-  type=list
+  type = list(any)
 }
 
 resource "aws_wafv2_web_acl_association" "example" {
