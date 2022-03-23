@@ -1,4 +1,4 @@
-#Makefile
+# Makefile
 ifdef OS
    BLAT = $(powershell  -noprofile rm .\.terraform\ -force -recurse)
    RM = $(powershell  -noprofile rm .\.terraform\ -force -recurse)
