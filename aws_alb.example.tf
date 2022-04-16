@@ -18,14 +18,9 @@ resource "aws_lb" "example" {
 
 
 
-resource "aws_s3_bucket" "lb_logs" {
-
-}
 
 
-resource "aws_security_group" "lb_sg" {
 
-}
 
 variable "subnet_ids" {
   type = list(any)
