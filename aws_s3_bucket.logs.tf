@@ -60,9 +60,9 @@ POLICY
 }
 
 variable "ELB_RegionalAccount" {
-  type=string
+  type        = string
   description = "Default account ID for ELB -default is eu-west-2"
-  default = "652711504416"
+  default     = "652711504416"
 }
 
 data "aws_caller_identity" "current" {}
