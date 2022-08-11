@@ -141,6 +141,7 @@ The Policy required is:
             "s3:ListAllMyBuckets",
             "s3:ListBucket",
             "s3:PutBucketAcl",
+            "s3:PutBucketPolicy",
             "s3:PutBucketPublicAccessBlock",
             "s3:PutEncryptionConfiguration"
         ],
