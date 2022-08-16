@@ -91,62 +91,74 @@ The Policy required is:
 ```json
 {
     "Version": "2012-10-17",
-    "Statement": {
-        "Effect": "Allow",
-        "Action": [
-            "ec2:CreateSecurityGroup",
-            "ec2:DeleteSecurityGroup",
-            "ec2:DescribeAccountAttributes",
-            "ec2:DescribeNetworkInterfaces",
-            "ec2:DescribeSecurityGroups",
-            "ec2:RevokeSecurityGroupEgress",
-            "elasticloadbalancing:CreateLoadBalancer",
-            "elasticloadbalancing:DeleteLoadBalancer",
-            "elasticloadbalancing:DescribeLoadBalancerAttributes",
-            "elasticloadbalancing:DescribeLoadBalancers",
-            "elasticloadbalancing:DescribeTags",
-            "elasticloadbalancing:ModifyLoadBalancerAttributes",
-            "elasticloadbalancing:SetSecurityGroups",
-            "iam:CreateRole",
-            "iam:DeleteRole",
-            "iam:GetRole",
-            "iam:ListAttachedRolePolicies",
-            "iam:ListInstanceProfilesForRole",
-            "iam:ListRolePolicies",
-            "kms:CreateKey",
-            "kms:DescribeKey",
-            "kms:EnableKeyRotation",
-            "kms:GetKeyPolicy",
-            "kms:GetKeyRotationStatus",
-            "kms:ListResourceTags",
-            "kms:ScheduleKeyDeletion",
-            "s3:CreateBucket",
-            "s3:DeleteBucket",
-            "s3:GetAccelerateConfiguration",
-            "s3:GetBucketAcl",
-            "s3:GetBucketCORS",
-            "s3:GetBucketLogging",
-            "s3:GetBucketObjectLockConfiguration",
-            "s3:GetBucketPolicy",
-            "s3:GetBucketPublicAccessBlock",
-            "s3:GetBucketRequestPayment",
-            "s3:GetBucketTagging",
-            "s3:GetBucketVersioning",
-            "s3:GetBucketWebsite",
-            "s3:GetEncryptionConfiguration",
-            "s3:GetLifecycleConfiguration",
-            "s3:GetObject",
-            "s3:GetObjectAcl",
-            "s3:GetReplicationConfiguration",
-            "s3:ListAllMyBuckets",
-            "s3:ListBucket",
-            "s3:PutBucketAcl",
-            "s3:PutBucketPolicy",
-            "s3:PutBucketPublicAccessBlock",
-            "s3:PutEncryptionConfiguration"
-        ],
-        "Resource": "*"
-    }
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateSecurityGroup",
+                "ec2:DeleteSecurityGroup",
+                "ec2:DescribeAccountAttributes",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribeSecurityGroups",
+                "ec2:RevokeSecurityGroupEgress",
+                "elasticloadbalancing:CreateLoadBalancer",
+                "elasticloadbalancing:DeleteLoadBalancer",
+                "elasticloadbalancing:DescribeLoadBalancerAttributes",
+                "elasticloadbalancing:DescribeLoadBalancers",
+                "elasticloadbalancing:DescribeTags",
+                "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                "elasticloadbalancing:SetSecurityGroups",
+                "firehose:CreateDeliveryStream",
+                "firehose:DeleteDeliveryStream",
+                "firehose:DescribeDeliveryStream",
+                "firehose:ListTagsForDeliveryStream",
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:GetRole",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListInstanceProfilesForRole",
+                "iam:ListRolePolicies",
+                "iam:PassRole",
+                "kms:CreateKey",
+                "kms:DescribeKey",
+                "kms:EnableKeyRotation",
+                "kms:GetKeyPolicy",
+                "kms:GetKeyRotationStatus",
+                "kms:ListResourceTags",
+                "kms:ScheduleKeyDeletion",
+                "s3:CreateBucket",
+                "s3:DeleteBucket",
+                "s3:GetAccelerateConfiguration",
+                "s3:GetBucketAcl",
+                "s3:GetBucketCORS",
+                "s3:GetBucketLogging",
+                "s3:GetBucketObjectLockConfiguration",
+                "s3:GetBucketPolicy",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetBucketRequestPayment",
+                "s3:GetBucketTagging",
+                "s3:GetBucketVersioning",
+                "s3:GetBucketWebsite",
+                "s3:GetEncryptionConfiguration",
+                "s3:GetLifecycleConfiguration",
+                "s3:GetObject",
+                "s3:GetObjectAcl",
+                "s3:GetReplicationConfiguration",
+                "s3:ListAllMyBuckets",
+                "s3:ListBucket",
+                "s3:PutBucketAcl",
+                "s3:PutBucketPolicy",
+                "s3:PutBucketPublicAccessBlock",
+                "s3:PutEncryptionConfiguration",
+                "wafv2:CreateWebACL",
+                "wafv2:DeleteWebACL",
+                "wafv2:GetWebACL",
+                "wafv2:ListTagsForResource"
+            ],
+            "Resource": "*"
+        }
+    ]
 }
 
 ```
@@ -203,11 +215,3 @@ under the License.
 
 [jameswoolfenden_homepage]: https://github.com/jameswoolfenden
 [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
-[github]: https://github.com/jameswoolfenden
-[linkedin]: https://www.linkedin.com/in/jameswoolfenden/
-[twitter]: https://twitter.com/JimWoolfenden
-[share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-alb&url=https://github.com/JamesWoolfenden/terraform-aws-alb
-[share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-alb&url=https://github.com/JamesWoolfenden/terraform-aws-alb
-[share_reddit]: https://reddit.com/submit/?url=https://github.com/JamesWoolfenden/terraform-aws-alb
-[share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/JamesWoolfenden/terraform-aws-alb
-[share_email]: mailto:?subject=terraform-aws-alb&body=https://github.com/JamesWoolfenden/terraform-aws-alb
