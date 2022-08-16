@@ -32,8 +32,8 @@ Include **module.alb.tf** this repository as a module in your existing terraform
 module "alb" {
   source        = "JamesWoolfenden/alb/aws"
   version       = "0.0.1"
-  subnet_ids=["subnet-03fdfb13a135366a7","subnet-08d97e381dbc80d40","subnet-05a6a6de2f4989d22"]
-  lb_name = "exmpl"
+  subnet_ids    = ["subnet-03fdfb13a135366a7","subnet-08d97e381dbc80d40","subnet-05a6a6de2f4989d22"]
+  lb_name       = "exmpl"
 }
 ```
 
