@@ -101,32 +101,67 @@ The Policy required is:
                 "ec2:DescribeAccountAttributes",
                 "ec2:DescribeNetworkInterfaces",
                 "ec2:DescribeSecurityGroups",
-                "ec2:RevokeSecurityGroupEgress",
+                "ec2:RevokeSecurityGroupEgress"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
                 "elasticloadbalancing:CreateLoadBalancer",
                 "elasticloadbalancing:DeleteLoadBalancer",
                 "elasticloadbalancing:DescribeLoadBalancerAttributes",
                 "elasticloadbalancing:DescribeLoadBalancers",
                 "elasticloadbalancing:DescribeTags",
                 "elasticloadbalancing:ModifyLoadBalancerAttributes",
-                "elasticloadbalancing:SetSecurityGroups",
+                "elasticloadbalancing:SetSecurityGroups"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": [
                 "firehose:CreateDeliveryStream",
                 "firehose:DeleteDeliveryStream",
                 "firehose:DescribeDeliveryStream",
-                "firehose:ListTagsForDeliveryStream",
+                "firehose:ListTagsForDeliveryStream"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor3",
+            "Effect": "Allow",
+            "Action": [
                 "iam:CreateRole",
                 "iam:DeleteRole",
                 "iam:GetRole",
                 "iam:ListAttachedRolePolicies",
                 "iam:ListInstanceProfilesForRole",
                 "iam:ListRolePolicies",
-                "iam:PassRole",
+                "iam:PassRole"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor4",
+            "Effect": "Allow",
+            "Action": [
                 "kms:CreateKey",
                 "kms:DescribeKey",
                 "kms:EnableKeyRotation",
                 "kms:GetKeyPolicy",
                 "kms:GetKeyRotationStatus",
                 "kms:ListResourceTags",
-                "kms:ScheduleKeyDeletion",
+                "kms:ScheduleKeyDeletion"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor5",
+            "Effect": "Allow",
+            "Action": [
                 "s3:CreateBucket",
                 "s3:DeleteBucket",
                 "s3:GetAccelerateConfiguration",
@@ -150,11 +185,22 @@ The Policy required is:
                 "s3:PutBucketAcl",
                 "s3:PutBucketPolicy",
                 "s3:PutBucketPublicAccessBlock",
-                "s3:PutEncryptionConfiguration",
+                "s3:PutEncryptionConfiguration"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor6",
+            "Effect": "Allow",
+            "Action": [
+                "wafv2:CreateRuleGroup",
                 "wafv2:CreateWebACL",
+                "wafv2:DeleteRuleGroup",
                 "wafv2:DeleteWebACL",
+                "wafv2:GetRuleGroup",
                 "wafv2:GetWebACL",
-                "wafv2:ListTagsForResource"
+                "wafv2:ListTagsForResource",
+                "wafv2:UpdateRuleGroup"
             ],
             "Resource": "*"
         }
