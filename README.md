@@ -89,7 +89,12 @@ This is the policy required to build this project:
 The Policy required is:
 
 ```json
-{
+resource "aws_iam_policy" "terraformXVlBzgba" {
+  name        = "terraformXVlBzgba"
+  path        = "/"
+  description = "Add Description"
+
+  policy = jsonencode({
     "Version": "2012-10-17",
     "Statement": [
         {
@@ -123,31 +128,6 @@ The Policy required is:
             "Sid": "VisualEditor2",
             "Effect": "Allow",
             "Action": [
-                "firehose:CreateDeliveryStream",
-                "firehose:DeleteDeliveryStream",
-                "firehose:DescribeDeliveryStream",
-                "firehose:ListTagsForDeliveryStream"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "VisualEditor3",
-            "Effect": "Allow",
-            "Action": [
-                "iam:CreateRole",
-                "iam:DeleteRole",
-                "iam:GetRole",
-                "iam:ListAttachedRolePolicies",
-                "iam:ListInstanceProfilesForRole",
-                "iam:ListRolePolicies",
-                "iam:PassRole"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "VisualEditor4",
-            "Effect": "Allow",
-            "Action": [
                 "kms:CreateKey",
                 "kms:DescribeKey",
                 "kms:EnableKeyRotation",
@@ -159,7 +139,7 @@ The Policy required is:
             "Resource": "*"
         },
         {
-            "Sid": "VisualEditor5",
+            "Sid": "VisualEditor3",
             "Effect": "Allow",
             "Action": [
                 "s3:CreateBucket",
@@ -180,32 +160,16 @@ The Policy required is:
                 "s3:GetObject",
                 "s3:GetObjectAcl",
                 "s3:GetReplicationConfiguration",
-                "s3:ListAllMyBuckets",
                 "s3:ListBucket",
-                "s3:PutBucketAcl",
                 "s3:PutBucketPolicy",
-                "s3:PutBucketPublicAccessBlock",
-                "s3:PutEncryptionConfiguration"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "VisualEditor6",
-            "Effect": "Allow",
-            "Action": [
-                "wafv2:CreateRuleGroup",
-                "wafv2:CreateWebACL",
-                "wafv2:DeleteRuleGroup",
-                "wafv2:DeleteWebACL",
-                "wafv2:GetRuleGroup",
-                "wafv2:GetWebACL",
-                "wafv2:ListTagsForResource",
-                "wafv2:UpdateRuleGroup"
+                "s3:PutBucketPublicAccessBlock"
             ],
             "Resource": "*"
         }
     ]
+})
 }
+
 
 ```
 <!-- END OF PRE-COMMIT-PIKE DOCS HOOK -->
