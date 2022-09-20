@@ -126,6 +126,31 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor2",
             "Effect": "Allow",
             "Action": [
+                "firehose:CreateDeliveryStream",
+                "firehose:DeleteDeliveryStream",
+                "firehose:DescribeDeliveryStream",
+                "firehose:ListTagsForDeliveryStream"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor3",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:GetRole",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListInstanceProfilesForRole",
+                "iam:ListRolePolicies",
+                "iam:PassRole"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor4",
+            "Effect": "Allow",
+            "Action": [
                 "kms:CreateKey",
                 "kms:DescribeKey",
                 "kms:EnableKeyRotation",
@@ -137,7 +162,7 @@ resource "aws_iam_policy" "terraform_pike" {
             "Resource": "*"
         },
         {
-            "Sid": "VisualEditor3",
+            "Sid": "VisualEditor5",
             "Effect": "Allow",
             "Action": [
                 "s3:CreateBucket",
@@ -158,9 +183,27 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:GetObject",
                 "s3:GetObjectAcl",
                 "s3:GetReplicationConfiguration",
+                "s3:ListAllMyBuckets",
                 "s3:ListBucket",
+                "s3:PutBucketAcl",
                 "s3:PutBucketPolicy",
-                "s3:PutBucketPublicAccessBlock"
+                "s3:PutBucketPublicAccessBlock",
+                "s3:PutEncryptionConfiguration"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor6",
+            "Effect": "Allow",
+            "Action": [
+                "wafv2:CreateRuleGroup",
+                "wafv2:CreateWebACL",
+                "wafv2:DeleteRuleGroup",
+                "wafv2:DeleteWebACL",
+                "wafv2:GetRuleGroup",
+                "wafv2:GetWebACL",
+                "wafv2:ListTagsForResource",
+                "wafv2:UpdateRuleGroup"
             ],
             "Resource": "*"
         }
