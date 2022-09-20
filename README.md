@@ -83,8 +83,6 @@ No outputs.
 
 ## Policy
 
-This is the policy required to build this project:
-
 <!-- BEGINNING OF PRE-COMMIT-PIKE DOCS HOOK -->
 The Terraform resource required is:
 
