@@ -17,7 +17,7 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 ## Usage
 
-This is just a very basic example.
+This is just a very basic example. Test
 
 ```cli
 $ checkov -d . --external-checks-dir checkov
