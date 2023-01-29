@@ -4,6 +4,7 @@ resource "aws_s3_bucket" "lb_logs" {
   # checkov:skip=CKV_AWS_145: v4 Legacy
   # checkov:skip=CKV_AWS_19: v4 Legacy
   # checkov:skip=CKV_AWS_21: v4 Legacy
+  tags = var.tags
 }
 
 resource "aws_s3_bucket_public_access_block" "logs" {

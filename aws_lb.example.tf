@@ -14,6 +14,7 @@ resource "aws_lb" "example" {
     enabled = true
   }
   drop_invalid_header_fields = true
+  tags                       = var.tags
 }
 
 

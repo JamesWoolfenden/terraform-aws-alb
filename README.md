@@ -74,11 +74,18 @@ No requirements.
 | <a name="input_ELB_RegionalAccount"></a> [ELB\_RegionalAccount](#input\_ELB\_RegionalAccount) | Default account ID for ELB -default is eu-west-2 | `string` | `"652711504416"` | no |
 | <a name="input_lb_name"></a> [lb\_name](#input\_lb\_name) | n/a | `string` | n/a | yes |
 | <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | n/a | `list(any)` | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | Map for tags | `map(any)` | n/a | yes |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | n/a | `string` | n/a | yes |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_bucket"></a> [bucket](#output\_bucket) | n/a |
+| <a name="output_kms"></a> [kms](#output\_kms) | n/a |
+| <a name="output_lb"></a> [lb](#output\_lb) | n/a |
+| <a name="output_sg"></a> [sg](#output\_sg) | n/a |
+| <a name="output_waf"></a> [waf](#output\_waf) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Policy
@@ -100,27 +107,35 @@ resource "aws_iam_policy" "terraform_pike" {
             "Effect": "Allow",
             "Action": [
                 "ec2:CreateSecurityGroup",
+                "ec2:CreateTags",
                 "ec2:DeleteSecurityGroup",
+                "ec2:DeleteTags",
                 "ec2:DescribeAccountAttributes",
                 "ec2:DescribeNetworkInterfaces",
                 "ec2:DescribeSecurityGroups",
                 "ec2:RevokeSecurityGroupEgress"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor1",
             "Effect": "Allow",
             "Action": [
+                "elasticloadbalancing:AddTags",
                 "elasticloadbalancing:CreateLoadBalancer",
                 "elasticloadbalancing:DeleteLoadBalancer",
                 "elasticloadbalancing:DescribeLoadBalancerAttributes",
                 "elasticloadbalancing:DescribeLoadBalancers",
                 "elasticloadbalancing:DescribeTags",
                 "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                "elasticloadbalancing:RemoveTags",
                 "elasticloadbalancing:SetSecurityGroups"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor2",
@@ -131,7 +146,9 @@ resource "aws_iam_policy" "terraform_pike" {
                 "firehose:DescribeDeliveryStream",
                 "firehose:ListTagsForDeliveryStream"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor3",
@@ -145,7 +162,9 @@ resource "aws_iam_policy" "terraform_pike" {
                 "iam:ListRolePolicies",
                 "iam:PassRole"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor4",
@@ -157,9 +176,13 @@ resource "aws_iam_policy" "terraform_pike" {
                 "kms:GetKeyPolicy",
                 "kms:GetKeyRotationStatus",
                 "kms:ListResourceTags",
-                "kms:ScheduleKeyDeletion"
+                "kms:ScheduleKeyDeletion",
+                "kms:TagResource",
+                "kms:UntagResource"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor5",
@@ -190,7 +213,9 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:PutBucketPublicAccessBlock",
                 "s3:PutEncryptionConfiguration"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor6",
@@ -205,7 +230,9 @@ resource "aws_iam_policy" "terraform_pike" {
                 "wafv2:ListTagsForResource",
                 "wafv2:UpdateRuleGroup"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         }
     ]
 })
@@ -235,7 +262,7 @@ Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright © 2022 James Woolfenden
+Copyright © 2022-2023 James Woolfenden
 
 ## License
 

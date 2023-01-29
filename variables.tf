@@ -5,3 +5,8 @@ variable "lb_name" {
 variable "vpc_id" {
   type = string
 }
+
+variable "tags" {
+  type        = map(any)
+  description = "Map for tags"
+}
