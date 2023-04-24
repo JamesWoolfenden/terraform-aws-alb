@@ -1,3 +1,4 @@
+#tfsec:ignore:aws-elb-alb-not-public
 resource "aws_lb" "example" {
 
   name_prefix        = var.lb_name

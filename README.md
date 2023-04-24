@@ -1,6 +1,6 @@
 # terraform-aws-alb
 
-[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-alb/workflows/Verify%20and%20Bump/badge.svg?branch=main)](https://github.com/JamesWoolfenden/terraform-aws-alb)
+[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-alb/workflows/Verify/badge.svg?branch=main)](https://github.com/JamesWoolfenden/terraform-aws-alb)
 [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-alb.svg)](https://github.com/JamesWoolfenden/terraform-aws-alb/releases/latest)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/JamesWoolfenden/terraform-aws-alb.svg?label=latest)](https://github.com/JamesWoolfenden/terraform-aws-alb/releases/latest)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.14.0-blue.svg)
@@ -52,7 +52,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_waf2"></a> [waf2](#module\_waf2) | JamesWoolfenden/waf2/aws | 0.1.3 |
+| <a name="module_waf2"></a> [waf2](#module\_waf2) | JamesWoolfenden/waf2/aws | 0.1.14 |
 
 ## Resources
 
@@ -61,8 +61,10 @@ No requirements.
 | [aws_kms_key.waf2](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_key) | resource |
 | [aws_lb.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb) | resource |
 | [aws_s3_bucket.lb_logs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
+| [aws_s3_bucket_lifecycle_configuration.lb_logs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_lifecycle_configuration) | resource |
 | [aws_s3_bucket_policy.examplea](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) | resource |
 | [aws_s3_bucket_public_access_block.logs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
+| [aws_s3_bucket_server_side_encryption_configuration.pike](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_server_side_encryption_configuration) | resource |
 | [aws_security_group.lb_sg](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
 | [aws_wafv2_web_acl_association.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/wafv2_web_acl_association) | resource |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
@@ -209,9 +211,11 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:ListAllMyBuckets",
                 "s3:ListBucket",
                 "s3:PutBucketAcl",
+                "s3:PutBucketLogging",
                 "s3:PutBucketPolicy",
                 "s3:PutBucketPublicAccessBlock",
-                "s3:PutEncryptionConfiguration"
+                "s3:PutEncryptionConfiguration",
+                "s3:PutLifecycleConfiguration"
             ],
             "Resource": [
                 "*"

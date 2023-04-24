@@ -1,9 +1,9 @@
+#tfsec:ignore:aws-s3-enable-bucket-logging tfsec:ignore:aws-s3-enable-versioning
 resource "aws_s3_bucket" "lb_logs" {
-  # checkov:skip=CKV_AWS_144: v4 Legacy
-  # checkov:skip=CKV_AWS_18: v4 Legacy
-  # checkov:skip=CKV_AWS_145: v4 Legacy
-  # checkov:skip=CKV_AWS_19: v4 Legacy
-  # checkov:skip=CKV_AWS_21: v4 Legacy
+  # checkov:skip=CKV_AWS_21: logs buckets should be write only
+  # checkov:skip=CKV_AWS_144: cross region for logs is overkill
+  # checkov:skip=CKV2_AWS_62: Its a log bucket
+  # checkov:skip=CKV_AWS_18: its a logging bucket
   tags = var.tags
 }
 
