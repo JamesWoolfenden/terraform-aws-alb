@@ -50,7 +50,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_waf2"></a> [waf2](#module\_waf2) | git::https://github.com/JamesWoolfenden/terraform-aws-waf2.git | ca016d169646e640ea6d648c0def99f94d3f01a3 |
+| <a name="module_waf2"></a> [waf2](#module\_waf2) | git::https://github.com/JamesWoolfenden/terraform-aws-waf2.git | 718f0aa1a0657a021ea96d224f938995fe85be02 |
 
 ## Resources
 
@@ -223,6 +223,7 @@ resource "aws_iam_policy" "terraform_pike" {
                 "kms:GetKeyPolicy",
                 "kms:GetKeyRotationStatus",
                 "kms:ListResourceTags",
+                "kms:PutKeyPolicy",
                 "kms:ScheduleKeyDeletion",
                 "kms:TagResource",
                 "kms:UntagResource"
