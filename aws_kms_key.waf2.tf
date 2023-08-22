@@ -13,5 +13,3 @@ resource "aws_kms_key" "waf2" {
 POLICY
   tags                = var.tags
 }
-
-data "aws_caller_identity" "current" {}
