@@ -52,7 +52,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_waf2"></a> [waf2](#module\_waf2) | JamesWoolfenden/waf2/aws | 0.1.14 |
+| <a name="module_waf2"></a> [waf2](#module\_waf2) | git::https://github.com/JamesWoolfenden/terraform-aws-waf2.git | ca016d169646e640ea6d648c0def99f94d3f01a3 |
 
 ## Resources
 
@@ -108,6 +108,52 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
+                "apigateway:SetWebACL"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "apprunner:AssociateWebAcl",
+                "apprunner:DescribeWebAclForService",
+                "apprunner:DisassociateWebAcl",
+                "apprunner:ListAssociatedServicesForWebAcl"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": [
+                "appsync:SetWebACL"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor3",
+            "Effect": "Allow",
+            "Action": [
+                "cognito-idp:AssociateWebACL",
+                "cognito-idp:DisassociateWebACL",
+                "cognito-idp:GetWebACLForResource",
+                "cognito-idp:ListResourcesForWebACL"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor4",
+            "Effect": "Allow",
+            "Action": [
                 "ec2:CreateSecurityGroup",
                 "ec2:CreateTags",
                 "ec2:DeleteSecurityGroup",
@@ -122,7 +168,7 @@ resource "aws_iam_policy" "terraform_pike" {
             ]
         },
         {
-            "Sid": "VisualEditor1",
+            "Sid": "VisualEditor5",
             "Effect": "Allow",
             "Action": [
                 "elasticloadbalancing:AddTags",
@@ -133,14 +179,15 @@ resource "aws_iam_policy" "terraform_pike" {
                 "elasticloadbalancing:DescribeTags",
                 "elasticloadbalancing:ModifyLoadBalancerAttributes",
                 "elasticloadbalancing:RemoveTags",
-                "elasticloadbalancing:SetSecurityGroups"
+                "elasticloadbalancing:SetSecurityGroups",
+                "elasticloadbalancing:SetWebAcl"
             ],
             "Resource": [
                 "*"
             ]
         },
         {
-            "Sid": "VisualEditor2",
+            "Sid": "VisualEditor6",
             "Effect": "Allow",
             "Action": [
                 "firehose:CreateDeliveryStream",
@@ -153,7 +200,7 @@ resource "aws_iam_policy" "terraform_pike" {
             ]
         },
         {
-            "Sid": "VisualEditor3",
+            "Sid": "VisualEditor7",
             "Effect": "Allow",
             "Action": [
                 "iam:CreateRole",
@@ -169,7 +216,7 @@ resource "aws_iam_policy" "terraform_pike" {
             ]
         },
         {
-            "Sid": "VisualEditor4",
+            "Sid": "VisualEditor8",
             "Effect": "Allow",
             "Action": [
                 "kms:CreateKey",
@@ -187,7 +234,7 @@ resource "aws_iam_policy" "terraform_pike" {
             ]
         },
         {
-            "Sid": "VisualEditor5",
+            "Sid": "VisualEditor9",
             "Effect": "Allow",
             "Action": [
                 "s3:CreateBucket",
@@ -222,16 +269,21 @@ resource "aws_iam_policy" "terraform_pike" {
             ]
         },
         {
-            "Sid": "VisualEditor6",
+            "Sid": "VisualEditor10",
             "Effect": "Allow",
             "Action": [
+                "wafv2:AssociateWebACL",
                 "wafv2:CreateRuleGroup",
                 "wafv2:CreateWebACL",
                 "wafv2:DeleteRuleGroup",
                 "wafv2:DeleteWebACL",
+                "wafv2:DisassociateWebACL",
+                "wafv2:GetLoggingConfiguration",
                 "wafv2:GetRuleGroup",
                 "wafv2:GetWebACL",
+                "wafv2:GetWebACLForResource",
                 "wafv2:ListTagsForResource",
+                "wafv2:PutLoggingConfiguration",
                 "wafv2:UpdateRuleGroup"
             ],
             "Resource": [

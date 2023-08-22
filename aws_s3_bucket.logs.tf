@@ -6,7 +6,6 @@ resource "aws_s3_bucket" "lb_logs" {
   # checkov:skip=CKV_AWS_18: its a logging bucket
   tags = var.tags
 }
-
 resource "aws_s3_bucket_public_access_block" "logs" {
   bucket                  = aws_s3_bucket.lb_logs.id
   restrict_public_buckets = true
@@ -14,7 +13,6 @@ resource "aws_s3_bucket_public_access_block" "logs" {
   block_public_policy     = true
   ignore_public_acls      = true
 }
-
 resource "aws_s3_bucket_policy" "examplea" {
   bucket = aws_s3_bucket.lb_logs.id
 
@@ -59,11 +57,9 @@ resource "aws_s3_bucket_policy" "examplea" {
 }
 POLICY
 }
-
 variable "ELB_RegionalAccount" {
   type        = string
   description = "Default account ID for ELB -default is eu-west-2"
   default     = "652711504416"
 }
-
 data "aws_caller_identity" "current" {}

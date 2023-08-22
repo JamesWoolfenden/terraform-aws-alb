@@ -17,17 +17,9 @@ resource "aws_lb" "example" {
   drop_invalid_header_fields = true
   tags                       = var.tags
 }
-
-
-
-
-
-
-
 variable "subnet_ids" {
   type = list(any)
 }
-
 resource "aws_wafv2_web_acl_association" "example" {
   resource_arn = aws_lb.example.arn
   web_acl_arn  = module.waf2.aws_wafv2_web_acl.arn

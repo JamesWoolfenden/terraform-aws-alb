@@ -4,6 +4,7 @@ module "lb" {
   lb_name    = "exmpl"
   vpc_id     = "vpc-0c33dc8cd64f408c4"
   tags = {
-    pike = "permissions"
+    pike      = "permissions"
+    yor_trace = "bdb361f6-5d73-466a-8e13-c599b9d0a75e"
   }
 }
