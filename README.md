@@ -24,8 +24,6 @@ $ checkov -d . --external-checks-dir checkov
 ...
 ```
 
-![alt text](./diagram/alb.png)
-
 Include **module.alb.tf** this repository as a module in your existing terraform code:
 
 ```terraform
