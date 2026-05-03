@@ -106,7 +106,8 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
-                "apigateway:SetWebACL"
+                "amplify:DisassociateWebACL",
+                "amplify:GetWebACLForResource"
             ],
             "Resource": [
                 "*"
@@ -114,6 +115,16 @@ resource "aws_iam_policy" "terraform_pike" {
         },
         {
             "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "apigateway:SetWebACL"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor2",
             "Effect": "Allow",
             "Action": [
                 "apprunner:AssociateWebAcl",
@@ -126,7 +137,7 @@ resource "aws_iam_policy" "terraform_pike" {
             ]
         },
         {
-            "Sid": "VisualEditor2",
+            "Sid": "VisualEditor3",
             "Effect": "Allow",
             "Action": [
                 "appsync:SetWebACL"
@@ -136,7 +147,7 @@ resource "aws_iam_policy" "terraform_pike" {
             ]
         },
         {
-            "Sid": "VisualEditor3",
+            "Sid": "VisualEditor4",
             "Effect": "Allow",
             "Action": [
                 "cognito-idp:AssociateWebACL",
@@ -149,36 +160,23 @@ resource "aws_iam_policy" "terraform_pike" {
             ]
         },
         {
-            "Sid": "VisualEditor4",
+            "Sid": "VisualEditor5",
             "Effect": "Allow",
             "Action": [
+                "ec2:AssociateVerifiedAccessInstanceWebAcl",
                 "ec2:CreateSecurityGroup",
                 "ec2:CreateTags",
+                "ec2:DeleteNetworkInterface",
                 "ec2:DeleteSecurityGroup",
                 "ec2:DeleteTags",
                 "ec2:DescribeAccountAttributes",
                 "ec2:DescribeNetworkInterfaces",
                 "ec2:DescribeSecurityGroups",
+                "ec2:DescribeVerifiedAccessInstanceWebAclAssociations",
+                "ec2:DetachNetworkInterface",
+                "ec2:DisassociateVerifiedAccessInstanceWebAcl",
+                "ec2:GetVerifiedAccessInstanceWebAcl",
                 "ec2:RevokeSecurityGroupEgress"
-            ],
-            "Resource": [
-                "*"
-            ]
-        },
-        {
-            "Sid": "VisualEditor5",
-            "Effect": "Allow",
-            "Action": [
-                "elasticloadbalancing:AddTags",
-                "elasticloadbalancing:CreateLoadBalancer",
-                "elasticloadbalancing:DeleteLoadBalancer",
-                "elasticloadbalancing:DescribeLoadBalancerAttributes",
-                "elasticloadbalancing:DescribeLoadBalancers",
-                "elasticloadbalancing:DescribeTags",
-                "elasticloadbalancing:ModifyLoadBalancerAttributes",
-                "elasticloadbalancing:RemoveTags",
-                "elasticloadbalancing:SetSecurityGroups",
-                "elasticloadbalancing:SetWebAcl"
             ],
             "Resource": [
                 "*"
@@ -188,10 +186,19 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor6",
             "Effect": "Allow",
             "Action": [
-                "firehose:CreateDeliveryStream",
-                "firehose:DeleteDeliveryStream",
-                "firehose:DescribeDeliveryStream",
-                "firehose:ListTagsForDeliveryStream"
+                "elasticloadbalancing:AddTags",
+                "elasticloadbalancing:AttachLoadBalancerToSubnets",
+                "elasticloadbalancing:CreateLoadBalancer",
+                "elasticloadbalancing:CreateLoadBalancerListeners",
+                "elasticloadbalancing:DeleteLoadBalancer",
+                "elasticloadbalancing:DescribeLoadBalancerAttributes",
+                "elasticloadbalancing:DescribeLoadBalancers",
+                "elasticloadbalancing:DescribeTags",
+                "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                "elasticloadbalancing:RemoveTags",
+                "elasticloadbalancing:SetSecurityGroups",
+                "elasticloadbalancing:SetWebACL",
+                "elasticloadbalancing:SetWebAcl"
             ],
             "Resource": [
                 "*"
@@ -199,6 +206,20 @@ resource "aws_iam_policy" "terraform_pike" {
         },
         {
             "Sid": "VisualEditor7",
+            "Effect": "Allow",
+            "Action": [
+                "firehose:CreateDeliveryStream",
+                "firehose:DeleteDeliveryStream",
+                "firehose:DescribeDeliveryStream",
+                "firehose:ListTagsForDeliveryStream",
+                "firehose:UpdateDestination"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor8",
             "Effect": "Allow",
             "Action": [
                 "iam:CreateRole",
@@ -214,7 +235,7 @@ resource "aws_iam_policy" "terraform_pike" {
             ]
         },
         {
-            "Sid": "VisualEditor8",
+            "Sid": "VisualEditor9",
             "Effect": "Allow",
             "Action": [
                 "kms:CreateKey",
@@ -233,11 +254,12 @@ resource "aws_iam_policy" "terraform_pike" {
             ]
         },
         {
-            "Sid": "VisualEditor9",
+            "Sid": "VisualEditor10",
             "Effect": "Allow",
             "Action": [
                 "s3:CreateBucket",
                 "s3:DeleteBucket",
+                "s3:DeleteBucketPolicy",
                 "s3:GetAccelerateConfiguration",
                 "s3:GetBucketAcl",
                 "s3:GetBucketCORS",
@@ -260,6 +282,7 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:PutBucketLogging",
                 "s3:PutBucketPolicy",
                 "s3:PutBucketPublicAccessBlock",
+                "s3:PutBucketTagging",
                 "s3:PutEncryptionConfiguration",
                 "s3:PutLifecycleConfiguration"
             ],
@@ -268,7 +291,7 @@ resource "aws_iam_policy" "terraform_pike" {
             ]
         },
         {
-            "Sid": "VisualEditor10",
+            "Sid": "VisualEditor11",
             "Effect": "Allow",
             "Action": [
                 "wafv2:AssociateWebACL",
@@ -278,12 +301,15 @@ resource "aws_iam_policy" "terraform_pike" {
                 "wafv2:DeleteWebACL",
                 "wafv2:DisassociateWebACL",
                 "wafv2:GetLoggingConfiguration",
+                "wafv2:GetPermissionPolicy",
                 "wafv2:GetRuleGroup",
                 "wafv2:GetWebACL",
                 "wafv2:GetWebACLForResource",
                 "wafv2:ListTagsForResource",
                 "wafv2:PutLoggingConfiguration",
-                "wafv2:UpdateRuleGroup"
+                "wafv2:PutPermissionPolicy",
+                "wafv2:UpdateRuleGroup",
+                "wafv2:UpdateWebACL"
             ],
             "Resource": [
                 "*"
@@ -317,7 +343,7 @@ Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright © 2022-2023 James Woolfenden
+Copyright © 2022-2026 James Woolfenden
 
 ## License
 
