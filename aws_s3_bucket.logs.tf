@@ -1,5 +1,6 @@
 #tfsec:ignore:aws-s3-enable-bucket-logging tfsec:ignore:aws-s3-enable-versioning
 resource "aws_s3_bucket" "lb_logs" {
+  # checkov:skip=CKV2_AWS_61: Lifecycle configuration not required for this bucket
   # checkov:skip=CKV_AWS_21: logs buckets should be write only
   # checkov:skip=CKV_AWS_144: cross region for logs is overkill
   # checkov:skip=CKV2_AWS_62: Its a log bucket
