@@ -54,6 +54,6 @@ repos:
       - id: pike-docs-go
         args: ["readme","-d", ".", "-i"]
   - repo: https://github.com/jameswoolfenden/ghat
-    rev: 9ac03a27b221b0173a40e66aac1d09f5be4db40c # v0.1.23
+    rev: c8917ba2df6dfe9a208dc464eb97e4547bf7e72e # v0.1.24
     hooks:
       - id: ghat-go-sift
